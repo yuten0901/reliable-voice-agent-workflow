@@ -1,0 +1,8 @@
+{
+  "call_id": "call-stt-003",
+  "caller_id": "+15550001003",
+  "turns": [
+    {"audio_ref": "caller-001.wav", "transcript": "", "failure": "timeout"},
+    {"audio_ref": "caller-002.wav", "transcript": "", "failure": "provider_error"}
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "schema_version": 2,
+  "execution_mode": "offline_fixture_only",
+  "summary": {
+    "scenarios": 3,
+    "passed": 3,
+    "failed": 0
+  },
+  "scenarios": [
+    {
+      "scenario": "01-happy-path__booked",
+      "expected": "booked",
+      "actual": "booked",
+      "passed": true,
+      "trace_events": 17,
+      "wav_outputs": 5,
+      "crm_contacts": 1
+    },
+    {
+      "scenario": "02-calendar-down__callback_requested",
+      "expected": "callback_requested",
+      "actual": "callback_requested",
+      "passed": true,
+      "trace_events": 19,
+      "wav_outputs": 5,
+      "crm_contacts": 1
+    },
+    {
+      "scenario": "03-stt-down__callback_requested",
+      "expected": "callback_requested",
+      "actual": "callback_requested",
+      "passed": true,
+      "trace_events": 9,
+      "wav_outputs": 3,
+      "crm_contacts": 1
+    }
+  ],
+  "hardening_summary": {
+    "controls": 5,
+    "passed": 5,
+    "failed": 0
+  },
+  "hardening_controls": [
+    {
+      "control": "calendar_retry_before_confirmation",
+      "passed": true,
+      "evidence": "disposition=booked; attempts=2"
+    },
+    {
+      "control": "checkpoint_resume_and_duplicate_convergence",
+      "passed": true,
+      "evidence": "interrupted=True; booking_attempts=1; crm_attempts=1"
+    },
+    {
+      "control": "structured_trace_redacts_pii",
+      "passed": true,
+      "evidence": "source and derived values from all fixtures plus a dynamic canary are absent"
+    },
+    {
+      "control": "concurrent_duplicate_claim_convergence",
+      "passed": true,
+      "evidence": "booking_writes=1; crm_writes=1"
+    },
+    {
+      "control": "environment_key_separates_pseudonymous_refs",
+      "passed": true,
+      "evidence": "same synthetic caller has different HMAC refs under two environment keys"
+    }
+  ],
+  "limitations": [
+    "STTはfixture transcriptを返すtest doubleで、実音声認識品質を測定していない",
+    "TTSはadapter境界を検証するtone WAVで、自然音声品質を測定していない",
+    "電話回線・Calendly・CRMの外部API、認証、課金、実通話は使用していない"
+  ]
+}

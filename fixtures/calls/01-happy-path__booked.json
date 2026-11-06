@@ -1,0 +1,10 @@
+{
+  "call_id": "call-happy-001",
+  "caller_id": "+15550001001",
+  "turns": [
+    {"audio_ref": "caller-001.wav", "transcript": "Hi, my name is Alice Morgan."},
+    {"audio_ref": "caller-002.wav", "transcript": "I am looking for assisted living for my mother."},
+    {"audio_ref": "caller-003.wav", "transcript": "Please email alice@example.test."},
+    {"audio_ref": "caller-004.wav", "transcript": "Tuesday at 10 AM works for me."}
+  ]
+}

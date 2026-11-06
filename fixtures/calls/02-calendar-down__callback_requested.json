@@ -1,0 +1,11 @@
+{
+  "call_id": "call-calendar-002",
+  "caller_id": "+15550001002",
+  "calendar_failure": true,
+  "turns": [
+    {"audio_ref": "caller-001.wav", "transcript": "My name is Bob Lee."},
+    {"audio_ref": "caller-002.wav", "transcript": "I am looking for memory care."},
+    {"audio_ref": "caller-003.wav", "transcript": "My email is bob@example.test."},
+    {"audio_ref": "caller-004.wav", "transcript": "Tuesday at ten AM please."}
+  ]
+}

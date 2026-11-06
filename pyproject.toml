@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=65.5"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "voice-agent-demo"
+version = "0.1.0"
+description = "再現可能なローカルVoice AI予約エージェント実証"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8.2", "ruff>=0.6", "mypy>=1.11"]
+
+[project.scripts]
+voice-agent-demo = "voice_agent_demo.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-config"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "C4", "ARG", "RET", "S"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
